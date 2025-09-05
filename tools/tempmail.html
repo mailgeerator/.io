@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temp Mail Generator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="container mt-4">
+    <h2>Temp Mail Generator</h2>
+    <p>Generate a temporary email address instantly.</p>
+
+    <div class="mb-3">
+      <button id="generateMail" class="btn btn-success">Generate Email</button>
+    </div>
+    <div class="alert alert-info" id="emailDisplay">Your temp email will appear here</div>
+
+    <div class="my-4 ad-space">Ad Space (300x250)</div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../js/header-footer.js"></script>
+  <script>
+    function randomMail() {
+      const domains = ["@tempmail.com", "@maildrop.cc", "@fakemail.org"];
+      const randomDomain = domains[Math.floor(Math.random() * domains.length)];
+      return "user" + Math.floor(Math.random()*10000) + randomDomain;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("generateMail").addEventListener("click", () => {
+        document.getElementById("emailDisplay").innerText = randomMail();
+      });
+    });
+  </script>
+</body>
+</html>
